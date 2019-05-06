@@ -2,6 +2,9 @@ const express = require('express')
 const cors = require('cors')
 const multer = require('multer')
 
+const storage = multer.memoryStorage()
+const upload = multer({ storage: storage })
+
 const app = express()
 
 app.use(cors())
