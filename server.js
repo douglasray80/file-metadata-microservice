@@ -13,11 +13,9 @@ app.use(express.static('public'))
 
 app.get('/', (req, res) => res.sendFile(__dirname + 'index.html'))
 
-app.post('/api/fileanalyse', (req, res) => {
-	// I can submit a form that includes a file upload.
-	// The form file input field has the "name" attribute set to "upfile". We rely on this in testing.
-	// When I submit something, I will receive the file name and size in bytes within the JSON response
-	res.json({ filename: '', size: '' })
+app.post('/api/fileanalyse', upload.single('upfile'), (req, res) => {
+	const { originalname, mimetype, size } = req.file
+	res.json({ filename: originalname, type: mimetype, size: `${size} bytes` })
 })
 
 app.listen(process.env.PORT || 4000, () => {
