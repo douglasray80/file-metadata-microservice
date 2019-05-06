@@ -4,7 +4,8 @@
 	"description": "",
 	"main": "index.js",
 	"scripts": {
-		"test": "echo \"Error: no test specified\" && exit 1"
+		"dev": "nodemon server.js",
+		"start": "node server.js"
 	},
 	"keywords": [
 		"node",
@@ -12,5 +13,11 @@
 		"mongoose"
 	],
 	"author": "Douglas Ray",
-	"license": "ISC"
+	"license": "ISC",
+	"dependencies": {
+		"multer": "^1.4.1"
+	},
+	"devDependencies": {
+		"nodemon": "^1.19.0"
+	}
 }
